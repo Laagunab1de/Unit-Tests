@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvitoNoLuche", "AvitoNoLuche\AvitoNoLuche.csproj", "{1C7440FF-5341-4675-A078-1B2F082953CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvitoNoLucheTests", "AvitoNoLucheTests\AvitoNoLucheTests.csproj", "{43DF14C3-F514-40E3-BFB1-5352EBE08A7C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C7440FF-5341-4675-A078-1B2F082953CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C7440FF-5341-4675-A078-1B2F082953CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C7440FF-5341-4675-A078-1B2F082953CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C7440FF-5341-4675-A078-1B2F082953CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43DF14C3-F514-40E3-BFB1-5352EBE08A7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43DF14C3-F514-40E3-BFB1-5352EBE08A7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43DF14C3-F514-40E3-BFB1-5352EBE08A7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43DF14C3-F514-40E3-BFB1-5352EBE08A7C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {537941AC-920D-4B30-8130-A3053B59803F}
+	EndGlobalSection
+EndGlobal
