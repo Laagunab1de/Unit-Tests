@@ -15,7 +15,7 @@ namespace AvitoNoLuche.Controllers
     public class ApartmentsController : ControllerBase
     {
         private readonly user05_3Context _context;
-        private int id4put;
+        private int id4put { get; set; }
 
         public ApartmentsController(user05_3Context context)
         {
@@ -43,19 +43,16 @@ namespace AvitoNoLuche.Controllers
 
             return apartment;
         }
-
-
-        // PUT: api/Apartments/5
+        
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost("Put")]
-        public async Task<IActionResult> PutApartment([FromBody] Apartment apartment)
+        [HttpPost("PutApp")]
+        public async Task<IActionResult> PutApartment([FromBody]Apartment apartment)
         {
-            id4put = apartment.Id;
-            if (id4put != apartment.Id)
-            {
-                return BadRequest();
-            }
-            _context.Entry(apartment).State = EntityState.Modified;
+            //id4put = apartment.Id;
+            //if (id4put != apartment.Id)
+            //{
+            //    return BadRequest();
+            //}
             try
             {
                 apartment.IdUserNavigation = _context.Users.Find(apartment.IdUser);
@@ -65,7 +62,7 @@ namespace AvitoNoLuche.Controllers
                 apartment.IdTransactionTypeNavigation = _context.TransactionTypes.Find(apartment.IdTransactionType);
                 apartment.IdTypeWindowsNavigation = _context.TypeWindows.Find(apartment.IdTypeWindows);
                 apartment.IdRepairNavigation = _context.Repairs.Find(apartment.IdRepair);
-                // apartment.IdBalconyType = apartment.IdBathroomtypeNavigation.Id;
+                _context.Entry(apartment).State = EntityState.Modified;                
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
@@ -82,10 +79,9 @@ namespace AvitoNoLuche.Controllers
 
             return NoContent();
         }
-
-        // POST: api/Apartments
+        // POST: api/Apartments/postapp
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost("post")]
+        [HttpPost("postapp")]
         public async Task<ActionResult<Apartment>> PostApartment([FromBody]Apartment apartment)
         {
            
@@ -96,8 +92,6 @@ namespace AvitoNoLuche.Controllers
             apartment.IdTransactionTypeNavigation = _context.TransactionTypes.Find(apartment.IdTransactionType);
             apartment.IdTypeWindowsNavigation = _context.TypeWindows.Find(apartment.IdTypeWindows);
             apartment.IdRepairNavigation = _context.Repairs.Find(apartment.IdRepair);
-           // apartment.IdBalconyType = apartment.IdBathroomtypeNavigation.Id;
-
             _context.Apartments.Add(apartment);
             await _context.SaveChangesAsync();
 
