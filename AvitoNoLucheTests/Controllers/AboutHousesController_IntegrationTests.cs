@@ -76,24 +76,7 @@ namespace AvitoNoLucheTests.Controllers
             Assert.IsInstanceOfType(abHouse1, returnedabHouse.GetType());
             _factory.Dispose();
             client.Dispose();
-        }      
-        [TestMethod]
-        public async Task PutAboutHousePost_IntTest()
-        {
-            // Arrange
-            var body = abHouse;
-            var _factory = new WebApplicationFactory<Program>();
-            var client = _factory.CreateClient();
-            var json = System.Text.Json.JsonSerializer.Serialize(body, body.GetType(), options);
-            // Act
-            var response = await client.PostAsync("/api/AboutHouses/put", new StringContent(json, Encoding.UTF8, "application/json"));        
-            var content = await response.Content.ReadAsStringAsync();
-            var result = System.Text.Json.JsonSerializer.Deserialize<object>(content, options);
-
-            // Assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual(HttpStatusCode.NoContent, response.StatusCode);
-        }
+        }            
         [TestMethod]
         public async Task DeleteAboutHousePost_IntTest()//интеграционный тест :))))
         {

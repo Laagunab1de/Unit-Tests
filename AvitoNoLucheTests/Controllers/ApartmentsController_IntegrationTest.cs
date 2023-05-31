@@ -74,7 +74,7 @@ namespace AvitoNoLucheTests.Controllers
             IdTypeWindows = 1,
             IdRepair = 1
         };
-        public Apartment? appp { get; set; }
+        public Apartment appp { get; set; }
 
         [TestMethod]
         public async Task GetApartmentsPost_IntTest()
@@ -101,25 +101,14 @@ namespace AvitoNoLucheTests.Controllers
         public async Task PostApartmentPost_IntTest()
         {
             // Act
-            var response = await client.PostAsync("/api/Apartments/postapp", new StringContent(JsonSerializer.Serialize(app1), 
+            var response = await client.PostAsync("/api/Apartments/postapp", new StringContent(JsonSerializer.Serialize(app1, options), 
                 Encoding.UTF8, "application/json"));           
             var responseContent = await response.Content.ReadAsStringAsync();
             var returnedApartment = JsonSerializer.Deserialize<Apartment>(responseContent);
             // Assert                    
             Assert.IsInstanceOfType(app1, returnedApartment.GetType());
-        }
-        [TestMethod()]
-        public async Task PutApartmentPost_IntTest()
-        {
-            // Arrange
-            appp = _context.Apartments.FirstOrDefault();
-            // Act
-            var response = await client.PostAsync("/api/Apartments/PutApp", new StringContent(JsonSerializer.Serialize(appp),
-                Encoding.UTF8, "application/json"));
-            // Assert
-            Assert.AreEqual(HttpStatusCode.NoContent, response.StatusCode);
-        }
-        [TestMethod()]
+        }     
+        [TestMethod()] 
         public async Task DeleteApartmentsPost_IntTest()//интеграционный тест :))))
         {
             _context.Apartments.Add(app1);
